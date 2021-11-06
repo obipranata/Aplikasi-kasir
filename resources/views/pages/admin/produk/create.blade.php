@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="">Stok</label>
-                                            <input type="number" name="stok" class="form-control" required>
+                                            <input type="hidden" name="stok" class="form-control" required value="0">
                                         </div>
                                         <div class="form-group">
                                             <label for="kd_kategori">Kategori</label>

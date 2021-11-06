@@ -29,6 +29,7 @@
                           <thead class="thead-light">
                             <tr>
                               <th>No</th>
+                              <th>Kode</th>
                               <th>Kategori</th>
                               <th>Nama Produk</th>
                               <th>Harga</th>
@@ -46,6 +47,7 @@
                             @foreach ($produk as $p)          
                               <tr>
                                 <td>{{++$i}}</td>
+                                <td>{{$p->kd_produk}}</td>
                                 <td>{{$p->nama_kategori}}</td>
                                 <td>{{$p->nama_produk}}</td>
                                 <td>{{$p->harga}}</td>
