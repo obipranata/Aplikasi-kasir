@@ -42,8 +42,8 @@
                                             <input type="number" name="harga" class="form-control" required value="{{$produk->harga}}"">
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Stok</label>
-                                            <input type="number" name="stok" class="form-control" required value="{{$produk->stok}}">
+                                            {{-- <label for="">Stok</label> --}}
+                                            <input type="hidden" name="stok" class="form-control" required value="{{$produk->stok}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="kd_kategori">Kategori</label>

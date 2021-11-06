@@ -41,7 +41,7 @@
                                             <input type="number" name="harga" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Stok</label>
+                                            {{-- <label for="">Stok</label> --}}
                                             <input type="hidden" name="stok" class="form-control" required value="0">
                                         </div>
                                         <div class="form-group">

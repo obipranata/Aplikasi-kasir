@@ -33,7 +33,7 @@
                               <th>Kategori</th>
                               <th>Nama Produk</th>
                               <th>Harga</th>
-                              <th>Stok</th>
+                              {{-- <th>Stok</th> --}}
                               {{-- <th>Barcode</th> --}}
                               <th>Edit</th>
                               <th>Hapus</th>
@@ -51,7 +51,7 @@
                                 <td>{{$p->nama_kategori}}</td>
                                 <td>{{$p->nama_produk}}</td>
                                 <td>{{$p->harga}}</td>
-                                <td>{{$p->stok}}</td>
+                                {{-- <td>{{$p->stok}}</td> --}}
                                 {{-- <td>
                                     {!! DNS1D::getBarcodeHTML($p->kd_produk, 'CODABAR') !!}
                                 </td> --}}
