@@ -13,8 +13,8 @@ class KategoriController extends Controller
     public function index(){
         // echo  DNS1D::getBarcodeHTML('12345', 'CODABAR') ;
         // die;
-        DB::select("DELETE FROM penjualan");
-        DB::select("DELETE FROM detail_penjualan");
+        // DB::select("DELETE FROM penjualan");
+        // DB::select("DELETE FROM detail_penjualan");
         $data['kategori'] = Kategori::all();
         return view('pages.admin.kategori.index', $data);
     }
