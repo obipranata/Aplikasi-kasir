@@ -30,27 +30,27 @@ class TransaksiController extends Controller
         $papua = date("H:i:s");
         $nama = $request->user()->name;
         $kembalian = $konvert_tunai - $request->jumlah_total;
-        // dd($request->kd_produk);
-        $penjualan = [
-            'no_nota' => $no_nota,
-            'tgl' => date('Y-m-d'),
-            'jam' => $papua,
-            'total_bayar' => $request->jumlah_total,
-            'tunai' => $konvert_tunai,
-            'kembalian' => $kembalian,
-            'user_id' => $request->user()->id
-        ];
-        Penjualan::create($penjualan);
-        for($i=0; $i < count($request->kd_produk); $i++){
-            $detail_penjualan =[
-                'no_nota' => $no_nota,
-                'kd_produk' => $request->kd_produk[$i],
-                'harga_beli' => $request->qty[$i] * $request->harga[$i],
-                'qty' => $request->qty[$i],
-            ];
+    
+        // $penjualan = [
+        //     'no_nota' => $no_nota,
+        //     'tgl' => date('Y-m-d'),
+        //     'jam' => $papua,
+        //     'total_bayar' => $request->jumlah_total,
+        //     'tunai' => $konvert_tunai,
+        //     'kembalian' => $kembalian,
+        //     'user_id' => $request->user()->id
+        // ];
+        // Penjualan::create($penjualan);
+        // for($i=0; $i < count($request->kd_produk); $i++){
+        //     $detail_penjualan =[
+        //         'no_nota' => $no_nota,
+        //         'kd_produk' => $request->kd_produk[$i],
+        //         'harga_beli' => $request->qty[$i] * $request->harga[$i],
+        //         'qty' => $request->qty[$i],
+        //     ];
 
-            Detail_penjualan::create($detail_penjualan);
-        }
+        //     Detail_penjualan::create($detail_penjualan);
+        // }
 
         echo "
         <html>
@@ -95,10 +95,8 @@ hr {
 <table cellspacing='0' cellpadding='0' style='width:350px; font-size:12pt; font-family:calibri;  border-collapse: collapse;' border='0'>
  
 <tr align='center'>
-<td width='15%'>Item</td>
-<td width='13%'>Price</td>
-<td width='4%'>Qty</td>
-<td width='13%'>Total</td><tr>
+<td colspan = '2'>Item</td>
+<td >Harga</td><tr>
 <td colspan='5'><hr></td></tr>
 </tr>
 ";
@@ -107,10 +105,9 @@ for($i=0; $i < count($request->kd_produk); $i++){
     $total = $request->qty[$i] * $produk->harga;
     $qty = $request->qty[$i];
 echo "<tr>
-<td style='vertical-align:top; padding-right:25px''>".$produk->nama_produk."</td>
-<td style='vertical-align:top; text-align:right; padding-right:15px'>".number_format($produk->harga)."</td>
-<td style='vertical-align:top; text-align:right; padding-right:15px'>$qty</td>
-<td style='text-align:right; vertical-align:top'>".number_format($total)."</td></tr>
+<td colspan = '2' style='vertical-align:top;'>".$produk->nama_produk." x ".$qty."</td>
+<td colspan= '2' style='vertical-align:top;  padding-right: 7px;'>".number_format($produk->harga)."</td>
+<td style =' vertical-align:top; '>".number_format($total)."</td></tr>
 <tr>";
 }
 echo "
