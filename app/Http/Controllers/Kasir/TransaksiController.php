@@ -107,7 +107,7 @@ for($i=0; $i < count($request->kd_produk); $i++){
     $qty = $request->qty[$i];
 echo "<tr>
 <td colspan = '2' style='vertical-align:top;'>".$produk->nama_produk." x ".$qty."</td>
-<td colspan= '2' style='vertical-align:top;  padding-right: 7px;'>".number_format($produk->harga)."</td>
+<td colspan= '2' style='vertical-align:top;  '>".number_format($produk->harga)."</td>
 <td style =' vertical-align:top; text-align:right'>".number_format($total)."</td></tr>
 <tr>";
 }
