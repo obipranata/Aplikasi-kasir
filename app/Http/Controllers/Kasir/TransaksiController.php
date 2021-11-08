@@ -108,7 +108,7 @@ for($i=0; $i < count($request->kd_produk); $i++){
 echo "<tr>
 <td colspan = '2' style='vertical-align:top;'>".$produk->nama_produk." x ".$qty."</td>
 <td colspan= '2' style='vertical-align:top;  padding-right: 7px;'>".number_format($produk->harga)."</td>
-<td style =' vertical-align:top; '>".number_format($total)."</td></tr>
+<td style =' vertical-align:top; text-align:right'>".number_format($total)."</td></tr>
 <tr>";
 }
 echo "
@@ -121,7 +121,7 @@ echo "
 <td colspan = '4'><div  color:black'>Cash : </div></td><td  font-size:16pt; color:black'>".number_format($konvert_tunai)."</td>
 </tr>
 <tr>
-<td colspan = '4'><div  color:black'>Kembalian : </div></td><td  font-size:16pt; color:black'>".number_format($kembalian)."</td>
+<td colspan = '4'><div  color:black'>Kembalian : </div></td><td  font-size:16pt; color:black; text-align:right'>".number_format($kembalian)."</td>
 </tr>
 </table>
 <table style='width:350; font-size:12pt;' cellspacing='2'><tr></br><td align='center'> TERIMAKASIH</br></td></tr></table></center></body>
