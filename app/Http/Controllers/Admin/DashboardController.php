@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 class DashboardController extends Controller
 {
     public function index(){
+        date_default_timezone_set("Asia/Jayapura");
         $hari = date('d');
         $bulan = date('m');
         $tahun = date('Y');
