@@ -93,22 +93,17 @@ hr {
 } 
 </style>
 <table cellspacing='0' cellpadding='0' style='width:350px; font-size:12pt; font-family:calibri;  border-collapse: collapse;' border='0'>
- 
-<tr align='center'>
-<td width='17%'>Item</td>
-<td width='13%'></td>
-<td width='13%'>Harga</td><tr>
-<td colspan='5'><hr></td></tr>
-</tr>
+
 ";
 for($i=0; $i < count($request->kd_produk); $i++){
     $produk = Produk::where(['kd_produk'=>$request->kd_produk[$i]])->first();
     $total = $request->qty[$i] * $produk->harga;
     $qty = $request->qty[$i];
-echo "<tr>
-<td colspan = '2' style='vertical-align:top; padding-left:20px'>".$produk->nama_produk." x ".$qty."</td>
-<td colspan= '4' style='vertical-align:top; text-align:center '>".number_format($produk->harga)."</td>
-<td style =' vertical-align:top; text-align:center'>".number_format($total)."</td></tr>
+echo "
+<br><br>
+<tr>
+<td colspan = '4' style='vertical-align:top;'>".$produk->nama_produk." x ".$qty." x ".number_format($produk->harga). "</td>
+<td style =' vertical-align:top;'>".number_format($total)."</td></tr>
 <tr>";
 }
 echo "
