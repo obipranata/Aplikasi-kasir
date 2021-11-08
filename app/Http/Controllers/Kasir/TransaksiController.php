@@ -31,26 +31,26 @@ class TransaksiController extends Controller
         $nama = $request->user()->name;
         $kembalian = $konvert_tunai - $request->jumlah_total;
     
-        // $penjualan = [
-        //     'no_nota' => $no_nota,
-        //     'tgl' => date('Y-m-d'),
-        //     'jam' => $papua,
-        //     'total_bayar' => $request->jumlah_total,
-        //     'tunai' => $konvert_tunai,
-        //     'kembalian' => $kembalian,
-        //     'user_id' => $request->user()->id
-        // ];
-        // Penjualan::create($penjualan);
-        // for($i=0; $i < count($request->kd_produk); $i++){
-        //     $detail_penjualan =[
-        //         'no_nota' => $no_nota,
-        //         'kd_produk' => $request->kd_produk[$i],
-        //         'harga_beli' => $request->qty[$i] * $request->harga[$i],
-        //         'qty' => $request->qty[$i],
-        //     ];
+        $penjualan = [
+            'no_nota' => $no_nota,
+            'tgl' => date('Y-m-d'),
+            'jam' => $papua,
+            'total_bayar' => $request->jumlah_total,
+            'tunai' => $konvert_tunai,
+            'kembalian' => $kembalian,
+            'user_id' => $request->user()->id
+        ];
+        Penjualan::create($penjualan);
+        for($i=0; $i < count($request->kd_produk); $i++){
+            $detail_penjualan =[
+                'no_nota' => $no_nota,
+                'kd_produk' => $request->kd_produk[$i],
+                'harga_beli' => $request->qty[$i] * $request->harga[$i],
+                'qty' => $request->qty[$i],
+            ];
 
-        //     Detail_penjualan::create($detail_penjualan);
-        // }
+            Detail_penjualan::create($detail_penjualan);
+        }
 
         echo "
         <html>
