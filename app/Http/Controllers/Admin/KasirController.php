@@ -21,7 +21,7 @@ class KasirController extends Controller
     public function store(Request $request){
         $validated = $request->validate([
             'email' => 'required|unique:users|max:255',
-            'password' => 'required', 'string', 'min:8', 'confirmed'
+            'password' => 'required|string|min:8|confirmed'
         ]);
         $data = [
             'name' => $request->name,
