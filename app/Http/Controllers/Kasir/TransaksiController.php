@@ -106,8 +106,8 @@ for($i=0; $i < count($request->kd_produk); $i++){
     $total = $request->qty[$i] * $produk->harga;
     $qty = $request->qty[$i];
 echo "<tr>
-<td colspan = '2' style='vertical-align:top;'>".$produk->nama_produk." x ".$qty."</td>
-<td colspan= '2' style='vertical-align:top; text-align:center '>".number_format($produk->harga)."</td>
+<td colspan = '2' style='vertical-align:top; padding-left:20px'>".$produk->nama_produk." x ".$qty."</td>
+<td colspan= '4' style='vertical-align:top; text-align:center '>".number_format($produk->harga)."</td>
 <td style =' vertical-align:top; text-align:center'>".number_format($total)."</td></tr>
 <tr>";
 }
