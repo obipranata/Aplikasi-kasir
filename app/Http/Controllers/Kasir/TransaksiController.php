@@ -101,7 +101,7 @@ for($i=0; $i < count($request->kd_produk); $i++){
 echo "
 <br><br>
 <tr>
-<td colspan = '3' style='vertical-align:top;'>".$produk->nama_produk." x ".$qty." x ".number_format($produk->harga). "</td>
+<td style='vertical-align:top;'>".$produk->nama_produk." x ".$qty." x ".number_format($produk->harga). " = </td>
 <td style =' vertical-align:top;'>".number_format($total)."</td>
 </tr>
 <tr>";
@@ -110,13 +110,13 @@ echo "
 <td colspan='5'><hr></td>
 </tr>
 <tr>
-<td colspan = '3'><div  color:black'>Total : </div></td><td  font-size:16pt; color:black'>".number_format($request->jumlah_total)."</td>
+<td colspan = '3'><div  color:black'>Total : ".number_format($request->jumlah_total)."</div></td>
 </tr>
 <tr>
-<td colspan = '3'><div  color:black'>Cash : </div></td><td  font-size:16pt; color:black'>".number_format($konvert_tunai)."</td>
+<td colspan = '3'><div  color:black'>Cash : ".number_format($konvert_tunai)."</div></td>
 </tr>
 <tr>
-<td colspan = '3'><div  color:black'>Kembalian : </div></td><td  font-size:16pt; color:black; text-align:right'>".number_format($kembalian)."</td>
+<td colspan = '3'><div  color:black'>Kembalian : ".number_format($kembalian)."</div></td>
 </tr>
 </table>
 <table style='width:350; font-size:12pt;' cellspacing='2'><tr></br><td align='center'> TERIMAKASIH</br></td></tr></table></center></body>
