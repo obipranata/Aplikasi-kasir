@@ -71,7 +71,7 @@ border: 1px solid black;
 </style>
 </head>
 <body style='font-family:tahoma; font-size:8pt;'>
-<center><table style='width:320px; font-size:16pt; font-family:calibri; border-collapse: collapse;' border = '0'>
+<center><table style='width:350px; font-size:16pt; font-family:calibri; border-collapse: collapse;' border = '0'>
 <td width='70%' align='CENTER' vertical-align:top'><span style='color:black;'>
 </br>Mega Futsal Abepura</span></br>
  
@@ -107,8 +107,8 @@ for($i=0; $i < count($request->kd_produk); $i++){
     $qty = $request->qty[$i];
 echo "<tr>
 <td colspan = '2' style='vertical-align:top;'>".$produk->nama_produk." x ".$qty."</td>
-<td colspan= '2' style='vertical-align:top;  '>".number_format($produk->harga)."</td>
-<td style =' vertical-align:top; text-align:right'>".number_format($total)."</td></tr>
+<td colspan= '2' style='vertical-align:top; text-align:center '>".number_format($produk->harga)."</td>
+<td style =' vertical-align:top; text-align:center'>".number_format($total)."</td></tr>
 <tr>";
 }
 echo "
