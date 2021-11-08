@@ -62,4 +62,10 @@ class KasirController extends Controller
 
         return redirect('/admin/kasir');
     }
+
+    public function destroy($id){
+        User::where('id', $id)->delete();
+
+        return redirect('/admin/kasir');
+    }
 }
