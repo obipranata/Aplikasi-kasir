@@ -98,10 +98,9 @@ for($i=0; $i < count($request->kd_produk); $i++){
     $produk = Produk::where(['kd_produk'=>$request->kd_produk[$i]])->first();
     $total = $request->qty[$i] * $produk->harga;
     $qty = $request->qty[$i];
-    $no = $i+1;
 echo "
 <tr>
-<td style='vertical-align:top;'>".$no.". ".$produk->nama_produk." x ".$qty." x ".number_format($produk->harga). " = ".number_format($total)."</td>
+<td style='vertical-align:top;'> ".$qty. " ".$produk->nama_produk." = ".number_format($total)."</td>
 </tr>
 <tr>";
 }
