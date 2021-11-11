@@ -58,7 +58,9 @@
                                             <label for="kd_kategori">Kategori</label>
                                             <select class="form-control" id="kd_kategori" name="kd_kategori" required>
                                                 @foreach ($kategori as $k)
-                                                    <option value="{{$k->kd_kategori}}">{{$k->nama_kategori}}</option>
+                                                    <option value="{{$k->kd_kategori}}">
+                                                        {{$k->kd_kategori}} - {{$k->nama_kategori}}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>

@@ -29,6 +29,7 @@
                           <thead class="thead-light">
                             <tr>
                               <th>No</th>
+                              <th>Kode Kategori</th>
                               <th>Nama Kategori</th>
                               <th>Edit</th>
                               <th>Hapus</th>
@@ -41,6 +42,7 @@
                             @foreach ($kategori as $k)          
                               <tr>
                                 <td>{{++$i}}</td>
+                                <td>{{$k->kd_kategori}}</td>
                                 <td>{{$k->nama_kategori}}</td>
                                 <td>
                                   <a href="/admin/kategori/{{$k->kd_kategori}}/edit" class="btn btn-warning btn-sm">
