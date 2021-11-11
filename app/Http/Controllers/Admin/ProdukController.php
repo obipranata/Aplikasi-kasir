@@ -23,17 +23,21 @@ class ProdukController extends Controller
 
     public function store(Request $request){
 
-        $kd_terakhir = DB::select("SELECT * FROM `produk` WHERE kd_kategori = '$request->kd_kategori' ORDER BY kd_produk DESC LIMIT 1");
+        $validated = $request->validate([
+            'kd_produk' => 'required|unique:produk',
+        ]);
 
-        if(empty($kd_terakhir)){
-            $kd_produk = "$request->kd_kategori"."001";
-        }else{
-            $kd_terakhir_produk = substr($kd_terakhir[0]->kd_produk, 3);
-            $kd_produk = "$request->kd_kategori".sprintf('%03d', $kd_terakhir_produk+1);
-        }
+        // $kd_terakhir = DB::select("SELECT * FROM `produk` WHERE kd_kategori = '$request->kd_kategori' ORDER BY kd_produk DESC LIMIT 1");
+
+        // if(empty($kd_terakhir)){
+        //     $kd_produk = "$request->kd_kategori"."001";
+        // }else{
+        //     $kd_terakhir_produk = substr($kd_terakhir[0]->kd_produk, 3);
+        //     $kd_produk = "$request->kd_kategori".sprintf('%03d', $kd_terakhir_produk+1);
+        // }
 
         $data = [
-            'kd_produk' => $kd_produk,
+            'kd_produk' => $request->kd_produk,
             'nama_produk' => $request->nama_produk,
             'harga' => $request->harga,
             'stok' => $request->stok,

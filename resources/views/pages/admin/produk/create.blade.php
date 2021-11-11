@@ -32,6 +32,16 @@
     
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <div class="form-group @error('kd_produk') is-invalid @enderror">
+                                            <label for="">Kode Produk</label>
+                                            <input type="text" name="kd_produk" class="form-control" required value="{{ old('kd_produk') }}">
+
+                                            @error('kd_produk')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
                                         <div class="form-group">
                                             <label for="">Nama Produk</label>
                                             <input type="text" name="nama_produk" class="form-control" required>
