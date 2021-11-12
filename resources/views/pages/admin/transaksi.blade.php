@@ -19,9 +19,14 @@
                 <div class="row">
                   <!-- DataTable with Hover -->
                   <div class="col-lg-12">
-                    <div class="card mb-4">
+                    <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#exportModal">
+                      Export PDF
+                    </button>
+
+                    <div class="card mb-4 mt-4">
+
                       <div class="table-responsive p-3">
-                        <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                        <table class="table align-items-center table-flush table-hover" id="dataTableeHover">
                           <thead class="thead-light">
                             <tr>
                               <th>No</th>
@@ -99,6 +104,39 @@
                     <div class="modal-footer">
                       <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              {{-- modal export--}}
+              <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exportModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal-label">Export PDF</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form method="POST" action="/admin/transaksi/laporan">
+                      @csrf
+                      <div class="modal-body">
+                          <div class="form-row">
+                            <div class="col">
+                              <label for="">Tanggal Awal</label>
+                              <input type="date" class="form-control" name="tgl_awal">
+                            </div>
+                            <div class="col">
+                              <label for="">Tanggal Akhir</label>
+                              <input type="date" class="form-control" name="tgl_akhir">
+                            </div>
+                          </div>
+                        
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Export</button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>

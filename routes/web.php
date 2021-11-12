@@ -35,6 +35,7 @@ Route::prefix('admin')->namespace('Admin')->middleware(['admin'])->group(functio
     Route::get('/transaksi', 'TransaksiController@index')->name('admin-transaksi');
     Route::get('/getTransaksi/{nota}', 'TransaksiController@getTransaksi')->name('get-transaksi');
     Route::post('/cetak-barcode/{kd_produk}', 'ProdukController@cetak')->name('cetak-produk');
+    Route::post('/transaksi/laporan', 'TransaksiController@createPDF')->name('create-pdf');
     Route::resource('kategori', 'KategoriController');
     Route::resource('produk', 'ProdukController');
     Route::resource('kasir', 'KasirController');

@@ -14,12 +14,12 @@ class DashboardController extends Controller
         $bulan = date('m');
         $tahun = date('Y');
         $data['pendapatan_harian'] = DB::select("SELECT SUM(total_bayar) as pendapatan FROM penjualan WHERE day(tgl) = '$hari' ");
-        $data['pendapatan'] = DB::select("SELECT SUM(total_bayar) as pendapatan FROM penjualan WHERE month(tgl) = '$bulan' ");
+        $data['pendapatan'] = DB::select("SELECT SUM(total_bayar) as pendapatan FROM penjualan WHERE month(tgl) = '$bulan' AND YEAR(penjualan.tgl) = '$tahun' ");
         $data['pembelian'] = DB::select("SELECT COUNT(no_nota) as transaksi FROM penjualan");
-        $data['penjualan'] = DB::select("SELECT SUM(detail_penjualan.qty) as pembelian FROM penjualan, detail_penjualan WHERE penjualan.no_nota = detail_penjualan.no_nota AND month(tgl) = '$bulan' ");
+        $data['penjualan'] = DB::select("SELECT SUM(detail_penjualan.qty) as pembelian FROM penjualan, detail_penjualan WHERE penjualan.no_nota = detail_penjualan.no_nota AND month(tgl) = '$bulan' AND YEAR(penjualan.tgl) = '$tahun'");
         $data['grafik'] = DB::select("SELECT MONTHNAME(penjualan.tgl) as bulan, penjualan.*, SUM(penjualan.total_bayar) as total_bayar_bulan FROM penjualan WHERE YEAR(penjualan.tgl) = '$tahun' GROUP BY month(penjualan.tgl) ");
 
-        $data['transaksi'] = DB::select("SELECT penjualan.*, users.name FROM users, penjualan WHERE penjualan.user_id = users.id ORDER BY penjualan.tgl DESC LIMIT 5 ");
+        $data['transaksi'] = DB::select("SELECT penjualan.*, users.name FROM users, penjualan WHERE penjualan.user_id = users.id ORDER BY penjualan.tgl, penjualan.jam DESC LIMIT 5 ");
         // dd($data);
         return view('pages.admin.home', $data);
     }
