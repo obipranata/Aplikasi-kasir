@@ -172,21 +172,23 @@
                         <div class="modal-body">
                           <h6 id="no_nota">
                           </h6>
-                          <table class="table table-borderless">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Kode</th>
-                                <th scope="col">Item</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Total</th>
-                              </tr>
-                            </thead>
-                            <tbody id="info-transaksi">
-                              
-                            </tbody>
-                          </table>
+                          <div class="table-responsive">
+                            <table class="table table-borderless">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Kode</th>
+                                  <th scope="col">Item</th>
+                                  <th scope="col">Qty</th>
+                                  <th scope="col">Harga</th>
+                                  <th scope="col">Total</th>
+                                </tr>
+                              </thead>
+                              <tbody id="info-transaksi">
+                                
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>

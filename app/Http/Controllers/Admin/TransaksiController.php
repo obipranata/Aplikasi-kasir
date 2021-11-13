@@ -53,6 +53,7 @@ class TransaksiController extends Controller
                 GROUP BY produk.kd_produk"
             );
 
+            $data['total_diskon'] = DB::select("SELECT SUM(harga_diskon) as total_diskon FROM penjualan WHERE (tgl BETWEEN '$tgl_awal' AND '$tgl_akhir') "); 
             $data['total_pendapatan'] = DB::select("SELECT SUM(total_bayar) as pendapatan FROM penjualan WHERE (tgl BETWEEN '$tgl_awal' AND '$tgl_akhir') "); 
             $data['total_qty'] = DB::select("SELECT SUM(detail_penjualan.qty) as total_item FROM penjualan, detail_penjualan WHERE penjualan.no_nota = detail_penjualan.no_nota AND (penjualan.tgl BETWEEN '$tgl_awal' AND '$tgl_akhir') "); 
       

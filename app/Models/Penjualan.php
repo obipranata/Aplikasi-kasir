@@ -13,6 +13,7 @@ class Penjualan extends Model
         'no_nota',
         'tgl',
         'jam',
+        'harga_diskon',
         'total_bayar',
         'tunai',
         'kembalian',

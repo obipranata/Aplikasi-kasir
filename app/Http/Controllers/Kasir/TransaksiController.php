@@ -24,6 +24,7 @@ class TransaksiController extends Controller
 
     public function store(Request $request){
         $tunai = $request->tunai;
+        $total_diskon = $request->total_diskon;
         $konvert_tunai = str_replace(".","",$tunai);
         date_default_timezone_set("Asia/Jayapura");
         $no_nota = time();
@@ -35,6 +36,7 @@ class TransaksiController extends Controller
             'no_nota' => $no_nota,
             'tgl' => date('Y-m-d'),
             'jam' => $papua,
+            'harga_diskon' => $request->total_diskon,
             'total_bayar' => $request->jumlah_total,
             'tunai' => $konvert_tunai,
             'kembalian' => $kembalian,
@@ -106,6 +108,12 @@ echo "
 }
 echo "
 <td colspan='5'><hr></td>
+</tr>
+<tr>
+<td colspan = '3'><div  color:black'>Harga Penjualan : ".number_format($request->jumlah_total + $total_diskon)."</div></td>
+</tr>
+<tr>
+<td colspan = '3'><div  color:black'>Harga Diskon : ".number_format($total_diskon)."</div></td>
 </tr>
 <tr>
 <td colspan = '3'><div  color:black'>Total : ".number_format($request->jumlah_total)."</div></td>

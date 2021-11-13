@@ -33,6 +33,8 @@
                               <th>No Nota</th>
                               <th>Tanggal</th>
                               <th>Jam</th>
+                              <th>Harga Diskon</th>
+                              <th>Harga Kotor</th>
                               <th>Total Bayar</th>
                               <th>Cash</th>
                               <th>Kembalian</th>
@@ -50,6 +52,8 @@
                                 <td>{{$t->no_nota}}</td>
                                 <td>{{$t->tgl}}</td>
                                 <td>{{$t->jam}}</td>
+                                <td>{{$t->harga_diskon}}</td>
+                                <td>{{$t->total_bayar + $t->harga_diskon}}</td>
                                 <td>{{$t->total_bayar}}</td>
                                 <td>{{$t->tunai}}</td>
                                 <td>{{$t->kembalian}}</td>
@@ -85,21 +89,23 @@
                     <div class="modal-body">
                       <h6 id="no_nota">
                       </h6>
-                      <table class="table table-borderless">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Kode</th>
-                            <th scope="col">Item</th>
-                            <th scope="col">Qty</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Total</th>
-                          </tr>
-                        </thead>
-                        <tbody id="info-transaksi">
-                          
-                        </tbody>
-                      </table>
+                      <div class="table-responsive">
+                        <table class="table table-borderless">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Kode</th>
+                              <th scope="col">Item</th>
+                              <th scope="col">Qty</th>
+                              <th scope="col">Harga</th>
+                              <th scope="col">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody id="info-transaksi">
+                            
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>

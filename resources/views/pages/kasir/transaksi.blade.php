@@ -73,13 +73,26 @@
                                 </div>
     
                                 <div class="row mt-3">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="pembayaran" id="tunai" name="tunai" autocomplete="off" required>
-                                            <input type="hidden" class="form-control" placeholder="jumlah-total" id="jumlah-total" name="jumlah_total">
+                                    <div class="col-sm-4">
+                                        <div class="form-group row">
+                                            <div class="col-4">
+                                                <label for="">
+                                                    Harga Diskon
+                                                </label>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="contoh 5000" id="total_diskon" name="total_diskon" autocomplete="off" value="0" required>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="pembayaran" id="tunai" name="tunai" autocomplete="off" required>
+                                            <input type="hidden" class="form-control" placeholder="jumlah total" id="jumlah-total" name="jumlah_total">
+                                            <input type="hidden" class="form-control" placeholder="total semua" id="total-semua" name="total_semua">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
                                         <button type="submit" id="btn-save" class="btn btn-success px-5">Sumbit</button>
                                     </div>
                                 </div>
@@ -103,6 +116,7 @@
             }
 
             var tunai = document.getElementById('tunai');
+
             tunai.addEventListener('keyup', function(e){
                 // tambahkan 'Rp.' pada saat form di ketik
                 // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
@@ -165,6 +179,7 @@
                         `);
                         jumlah = jumlah + data.harga * qty;
                         $("#total-harga").html(`Total Rp.${formatNumber(jumlah)}`);
+                        $("#total-semua").val(`${jumlah}`);
                         $("#jumlah-total").val(`${jumlah}`);
                     }else {
                         alert('Produk tidak ditemukan');
@@ -179,6 +194,12 @@
 
             $("#btn-save").on('click', function(){
                 tunai = $('#tunai').val();
+            });
+
+            $("#total_diskon").on("input", function(){
+                // Print entered value in a div box
+                $("#jumlah-total").val($('#total-semua').val() - $(this).val());
+                $("#total-harga").html(`Total Rp.${formatNumber($('#total-semua').val() - $(this).val())}`);
             });
         });
     </script>

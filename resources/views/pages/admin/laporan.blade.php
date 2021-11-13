@@ -60,7 +60,7 @@ img.center {
             <th>Qty</th>
             <th>Tanggal</th>
             <th>Jam</th>
-            <th>Total Bayar</th>
+            <th>Harga Total</th>
             <th>Kasir</th>
         </tr>
     </thead>
@@ -91,7 +91,7 @@ img.center {
             <th>No</th>
             <th>Produk</th>
             <th>Qty</th>
-            <th>Total Bayar</th>
+            <th>Harga Total</th>
         </tr>
     </thead>
     <tbody>
@@ -113,7 +113,13 @@ img.center {
     Total produk terjual : {{$total_qty[0]->total_item}} item
 </p>
 <p>
-    Pendapatan : Rp.{{number_format($total_pendapatan[0]->pendapatan)}}
+    Total Pendapatan Kotor : Rp.{{number_format($total_pendapatan[0]->pendapatan + $total_diskon[0]->total_diskon)}}
+</p>
+<p>
+    Total Diskon : Rp.{{number_format($total_diskon[0]->total_diskon)}}
+</p>
+<p>
+    Total Pendapatan : Rp.{{number_format($total_pendapatan[0]->pendapatan)}}
 </p>
 
 </body>
