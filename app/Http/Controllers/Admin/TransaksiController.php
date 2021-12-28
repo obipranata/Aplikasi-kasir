@@ -10,7 +10,8 @@ use PDF;
 class TransaksiController extends Controller
 {
     public function index(){
-        $data['transaksi'] = DB::select("SELECT penjualan.*, users.name FROM penjualan, users WHERE users.id = penjualan.user_id ORDER BY penjualan.tgl, penjualan.jam DESC");
+        date_default_timezone_set("Asia/Jayapura");
+        $data['transaksi'] = DB::select("SELECT penjualan.*, users.name FROM penjualan, users WHERE users.id = penjualan.user_id ORDER BY penjualan.tgl DESC");
         // dd($transaksi);
         return view('pages.admin.transaksi', $data);
     }
